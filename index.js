@@ -12,7 +12,7 @@ const AirPurifierAccessory = require('./lib/air_purifier_accessory')
 const WindowCoveringAccessory = require('./lib/window_covering_accessory')
 const ContactSensorAccessory = require('./lib/contactsensor_accessory');
 const LeakSensorAccessory = require('./lib/leak_sensor_accessory')
-const ActuatorAccessory = require('./lib/actuator_accessory');
+const RadiatorActuatorAccessory = require('./lib/radiator_actuator_accessory');
 
 const LogUtil = require('./util/logutil')
 const DataUtil = require('./util/datautil')
@@ -164,7 +164,7 @@ class TuyaPlatform {
         this.deviceAccessories.set(uuid, deviceAccessory);
         break;
       case 'wk':
-        deviceAccessory = new ActuatorAccessory(this, homebridgeAccessory, device);
+        deviceAccessory = new RadiatorActuatorAccessory(this, homebridgeAccessory, device);
         this.accessories.set(uuid, deviceAccessory.homebridgeAccessory);
         this.deviceAccessories.set(uuid, deviceAccessory);
         break;
